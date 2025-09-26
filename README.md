@@ -9,3 +9,7 @@
 [FDE_generator 코드]
 - 이것은 GPT의 힘을 빌렸고, 이유는 encode_document를 naive하게 하면 OOM이 발생함. FDE 작업 자체가 dimension이 커질수록, FDE memory footprint가 커져서 np.vstack 같이 한 번의 임베딩 오브젝트를 쓰는 작업은 OOM을 유발할 수 밖에 없음.
 - np.vstack을 쓰지 않고 stream + mmap 방식으로 구현하도록 GPT에 요청하였음. 참고바람. 더 나은 로직을 짤 수 있다면 수정해도 무방함.
+
+[Issues]
+- muvera에서 제공하는 코드로 Recall rate 계산 가능함.
+- recall measure를 위해 (이번 주 회의에서 논의했던) doc_id 와 vector id 간 mapping은 안해도 될 듯. 
